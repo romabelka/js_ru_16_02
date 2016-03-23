@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import CommentList from './CommentList'
+//import CommentList from './CommentList'
 import { deleteArticle } from './../actions/articles'
 import translate from '../HOC/Translate'
 require('./../style.css')
@@ -39,13 +39,14 @@ class Article extends Component {
     }
 
     getBody() {
-        const {article, translate} = this.props
+        const {article, translate, isOpen} = this.props
+        if (!isOpen) return null
         if (article.loading) return <div key="article!"><h2>{translate('loading')}...</h2></div>
         return (
             <div key="article">
                 <a href="#" onClick = {this.handleDeleteArticle}>{translate('delete this article')}</a>
                 <p>{article.text}</p>
-                <CommentList article = {article}/>
+                {/*<CommentList article = {article}/>*/}
             </div>
         )
     }

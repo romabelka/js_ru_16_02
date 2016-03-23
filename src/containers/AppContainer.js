@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { increment } from '../actions/counter'
+import { addComment } from '../actions/comments'
+import { deleteArticle } from '../actions/articles'
 import { getRelation } from '../utils'
+import ArticleList from '../components/ArticleList'
 
 class AppContainer extends Component {
     static propTypes = {
@@ -10,11 +13,13 @@ class AppContainer extends Component {
     };
 
     render() {
-        const { counter, articles, increment } = this.props
+        const { counter, articles, increment, deleteArticle, addComment } = this.props
         return (
             <div>
                 <h1 onClick={() => increment(10)}>{counter}</h1>
-                <ul>{this.getArticles()}</ul>
+                <ArticleList
+                    {...{ articles, deleteArticle, addComment }}
+                />
             </div>
         )
     }
@@ -28,5 +33,5 @@ export default connect((state) => {
     const {counter, articles} = state
     return {counter, articles}
 }, {
-    increment
+    increment, addComment, deleteArticle
 })(AppContainer)

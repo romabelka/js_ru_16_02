@@ -42,7 +42,7 @@ const Article = React.createClass({
 
     select(ev) {
         ev.preventDefault()
-        this.props.select()
+        this.props.onClick()
     }
 })
 
