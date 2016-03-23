@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-//import CommentList from './CommentList'
+import CommentList from './StaticCommentList'
 import { deleteArticle } from './../actions/articles'
 import translate from '../HOC/Translate'
 require('./../style.css')
@@ -46,7 +46,7 @@ class Article extends Component {
             <div key="article">
                 <a href="#" onClick = {this.handleDeleteArticle}>{translate('delete this article')}</a>
                 <p>{article.text}</p>
-                {/*<CommentList article = {article}/>*/}
+                <CommentList article = {article}/>
             </div>
         )
     }
