@@ -7,6 +7,8 @@ require('./../style.css')
 class Article extends Component {
     static propTypes = {
         article: PropTypes.object,
+        addComment: PropTypes.func,
+        deleteArticle: PropTypes.func,
 
         isOpen: PropTypes.bool,
         toggleOpen: PropTypes.func
@@ -53,7 +55,7 @@ class Article extends Component {
 
     handleDeleteArticle = (ev) => {
         ev.preventDefault()
-        deleteArticle(this.props.article.id)
+        this.props.deleteArticle(this.props.article.id)
     };
 }
 
