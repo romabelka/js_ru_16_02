@@ -41,14 +41,14 @@ class Article extends Component {
     }
 
     getBody() {
-        const {article, translate, isOpen} = this.props
+        const {article, addComment, translate, isOpen} = this.props
         if (!isOpen) return null
         if (article.loading) return <div key="article!"><h2>{translate('loading')}...</h2></div>
         return (
             <div key="article">
                 <a href="#" onClick = {this.handleDeleteArticle}>{translate('delete this article')}</a>
                 <p>{article.text}</p>
-                <CommentList article = {article}/>
+                <CommentList {...{ addComment, article }}/>
             </div>
         )
     }

@@ -50,8 +50,7 @@ class CommentList extends Component {
 
     submitComment = (ev) => {
         ev.preventDefault()
-        console.log('---', 'adding comment');
-        //addComment(this.state.comment, this.props.article.id)
+        this.props.addComment(this.state.comment, this.props.article.id)
         this.setState({
             comment: ''
         })
