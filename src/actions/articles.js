@@ -8,8 +8,12 @@ export function deleteArticle(id) {
 }
 
 export function loadAllArticles() {
-    return {
+    return [{
         type: LOAD_ALL_ARTICLES,
         callAPI: '/api/article'
-    }
+    },
+        {
+            type: 'HELLO_WORLD_ACTION'
+        }
+    ]
 }
