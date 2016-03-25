@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { increment } from '../actions/counter'
 import { addComment } from '../actions/comments'
-import { deleteArticle } from '../actions/articles'
+import { deleteArticle, loadAllArticles } from '../actions/articles'
 import { getRelation } from '../utils'
 import ArticleList from '../components/ArticleList'
 
@@ -11,6 +11,10 @@ class AppContainer extends Component {
         counter: PropTypes.number,
         increment: PropTypes.func
     };
+
+    componentDidMount() {
+        this.props.loadAllArticles()
+    }
 
     render() {
         const { counter, articles, increment, deleteArticle, addComment } = this.props
@@ -33,5 +37,5 @@ export default connect((state) => {
     const {counter, articles} = state
     return {counter, articles}
 }, {
-    increment, addComment, deleteArticle
+    increment, addComment, deleteArticle, loadAllArticles
 })(AppContainer)
