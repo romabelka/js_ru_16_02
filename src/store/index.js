@@ -3,13 +3,14 @@ import reducer from '../reducers'
 //import logger from '../middlewares/logger'
 import createLogger from 'redux-logger'
 import multi from 'redux-multi'
+import thunk from 'redux-thunk'
 import randomId from '../middlewares/randomId'
 import api from '../middlewares/api'
 import DevTools from '../containers/DevTools'
 
 const logger = createLogger()
 const enhancer = compose(
-    applyMiddleware(multi, randomId, api, logger),
+    applyMiddleware(multi, thunk, randomId, api, logger),
     DevTools.instrument()
 )
 
