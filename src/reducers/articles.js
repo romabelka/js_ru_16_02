@@ -1,10 +1,11 @@
-import { DELETE_ARTICLE, ADD_COMMENT } from '../actions/constants'
+import { DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, _SUCCESS } from '../actions/constants'
 import { articles as defaultArticles} from '../fixtures'
 
-export default (articles = defaultArticles, action) => {
-    const { type, data } = action
+export default (articles = [], action) => {
+    const { type, data, response } = action
 
     switch (type) {
+        case LOAD_ALL_ARTICLES + _SUCCESS: return articles.concat(response)
         case DELETE_ARTICLE: return articles.filter((article) => article.id != data.id)
         case ADD_COMMENT: return addComment(articles, data.articleId, action.randomId)
     }
