@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Root from '../containers/Root'
+import AppContainer from '../containers/AppContainer'
 
 class App extends Component {
     static propTypes = {
@@ -9,7 +9,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.props.children}
+                <h2>AAAAAA</h2>
+                <AppContainer />
             </div>
         )
     }

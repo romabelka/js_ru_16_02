@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Root from './containers/Root'
-import store from './store'
+import routes from './routes'
 
-ReactDOM.render(<Root store = {store} />, document.getElementById('container'))
+ReactDOM.render(routes, document.getElementById('container'))

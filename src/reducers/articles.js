@@ -1,6 +1,12 @@
 import { DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, _SUCCESS } from '../actions/constants'
 import { articles as defaultArticles} from '../fixtures'
 
+const defaultState = {
+    articles: [],
+    loading: false,
+    loaded: false
+}
+
 export default (articles = [], action) => {
     const { type, data, response } = action
 

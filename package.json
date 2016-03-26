@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrent --kill-others \"webpack-dev-server --hot --inline\" \"node simple_api/server.js\""
+    "start": "concurrent --kill-others \"webpack-dev-server --hot --inlin\" \"node simple_api/server.js\""
   },
   "repository": {
     "type": "git",

@@ -1,18 +1,17 @@
 import React, { Component, PropTypes } from 'react'
-import AppContainer from './AppContainer'
+//import AppContainer from './AppContainer'
 import DevTools from './DevTools'
 import { Provider } from 'react-redux'
+import store from '../store'
 
 class Root extends Component {
-    static propTypes = {
-        store: PropTypes.object.isRequired
-    };
-
     render() {
+        console.log('---', 123);
         return (
-            <Provider store={this.props.store}>
+            <Provider store={store}>
                 <div>
-                    <AppContainer />
+                    <h1>Container!</h1>
+                    {this.props.children}
                     <DevTools />
                 </div>
             </Provider>
